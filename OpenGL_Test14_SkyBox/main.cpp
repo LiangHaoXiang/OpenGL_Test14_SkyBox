@@ -81,15 +81,14 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    char* headDir = "/Users/haoxiangliang/Desktop/代码草稿/OpenGL/OpenGL_Test10_MyModel/OpenGL_Test10_MyModel/";
+    char* headDir = "/Users/haoxiangliang/Desktop/代码草稿/OpenGL/OpenGL_Test14_SkyBox/OpenGL_Test14_SkyBox/";
     string p1 = string(headDir) + "ModelShader/ModelVertexShader.cpp";
     string p2 = string(headDir) + "ModelShader/ModelFragmentShader.cpp";
     Shader ourShader(p1.c_str(), p2.c_str());
 
     // load models
     // -----------
-    string p3 = string(headDir) + "nanosuit/nanosuit.obj";
-    Model ourModel(p3);
+    Model ourModel("/Users/haoxiangliang/Desktop/未命名文件夹/nanosuit/nanosuit.obj");
 
     
     // draw in wireframe
