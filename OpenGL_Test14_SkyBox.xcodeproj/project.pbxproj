@@ -46,6 +46,10 @@
 		AB8D898C26B4F3FD00F50B7E /* Model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
 		AB8D89A726B4F40F00F50B7E /* ModelVertexShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelVertexShader.cpp; sourceTree = "<group>"; };
 		AB8D89A826B4F40F00F50B7E /* ModelFragmentShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelFragmentShader.cpp; sourceTree = "<group>"; };
+		AB8D89AA26B4F7A800F50B7E /* SkyVertexShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SkyVertexShader.cpp; sourceTree = "<group>"; };
+		AB8D89AB26B4F7A800F50B7E /* SkyFragmentShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SkyFragmentShader.cpp; sourceTree = "<group>"; };
+		AB8D89AD26B550E800F50B7E /* CubeVertexShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CubeVertexShader.cpp; sourceTree = "<group>"; };
+		AB8D89AE26B550E800F50B7E /* CubeFragmentShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CubeFragmentShader.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 		AB8D897426B4F18A00F50B7E /* OpenGL_Test14_SkyBox */ = {
 			isa = PBXGroup;
 			children = (
+				AB8D89AC26B550E800F50B7E /* CubeShader */,
+				AB8D89A926B4F7A800F50B7E /* SkyShader */,
 				AB8D89A626B4F40F00F50B7E /* ModelShader */,
 				AB8D898B26B4F3FD00F50B7E /* Camera.cpp */,
 				AB8D898926B4F3FD00F50B7E /* Camera.hpp */,
@@ -114,6 +120,24 @@
 				AB8D89A826B4F40F00F50B7E /* ModelFragmentShader.cpp */,
 			);
 			path = ModelShader;
+			sourceTree = "<group>";
+		};
+		AB8D89A926B4F7A800F50B7E /* SkyShader */ = {
+			isa = PBXGroup;
+			children = (
+				AB8D89AA26B4F7A800F50B7E /* SkyVertexShader.cpp */,
+				AB8D89AB26B4F7A800F50B7E /* SkyFragmentShader.cpp */,
+			);
+			path = SkyShader;
+			sourceTree = "<group>";
+		};
+		AB8D89AC26B550E800F50B7E /* CubeShader */ = {
+			isa = PBXGroup;
+			children = (
+				AB8D89AD26B550E800F50B7E /* CubeVertexShader.cpp */,
+				AB8D89AE26B550E800F50B7E /* CubeFragmentShader.cpp */,
+			);
+			path = CubeShader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

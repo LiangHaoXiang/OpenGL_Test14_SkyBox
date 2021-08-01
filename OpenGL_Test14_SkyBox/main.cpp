@@ -129,6 +129,9 @@ int main()
     string p3 = string(headDir) + "SkyShader/SkyVertexShader.cpp";
     string p4 = string(headDir) + "SkyShader/SkyFragmentShader.cpp";
     Shader skyboxShader(p3.c_str(), p4.c_str());
+    string p5 = string(headDir) + "ModelShader/ModelVertexShader.cpp";
+    string p6 = string(headDir) + "ModelShader/ModelFragmentShader.cpp";
+    Shader modelShader(p5.c_str(), p6.c_str());
     // load skybox
     // -----------
     // skybox VAO
@@ -154,11 +157,16 @@ int main()
     };
     unsigned int cubemapTexture = loadCubemap(faces);
 
+    // load models
+    // -----------
+    Model ourModel("/Users/haoxiangliang/Desktop/未命名文件夹/nanosuit/nanosuit.obj");
+    
     // shader configuration
     // --------------------
-    skyboxShader.use();
-    skyboxShader.setInt("skybox", 0);
 
+
+
+    
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -184,6 +192,8 @@ int main()
 
         //天空盒 skybox
         glDepthMask(GL_FALSE);
+        skyboxShader.use();
+        skyboxShader.setInt("skybox", 0);
         skyboxShader.setMat4("view", view);
         skyboxShader.setMat4("projection", projection);
         glBindVertexArray(skyboxVAO);
@@ -192,6 +202,19 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         glDepthMask(GL_TRUE);
+
+        view = camera.GetViewMatrix();
+
+        // don't forget to enable shader before setting uniforms
+        modelShader.use();
+        modelShader.setMat4("projection", projection);
+        modelShader.setMat4("view", view);
+        // render the loaded model
+        mat4 model = mat4(1.0f);
+        model = translate(model, vec3(2.0f, -0.75f, 3.0f)); // translate it down so it's at the center of the scene
+        model = scale(model, vec3(0.1f));    // it's a bit too big for our scene, so scale it down
+        modelShader.setMat4("model", model);
+        ourModel.Draw(modelShader);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
